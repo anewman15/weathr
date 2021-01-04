@@ -5,22 +5,27 @@ const displayCurrentLocationWeather = async position => {
 	const { longitude } = coordinates;
 	const apiKey = '65dc2a1f074cfaa1facbb96a66e9e88b';
 
-	const coordsUrl = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-	console.log(coordsUrl);
-	let weatherData;
-	try {
-		weatherData = await fetch(coordsUrl);
-		console.log(weatherData);
-	} catch (err) {
-		console.log(err);
-	}
+	// const coordsUrl = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+	// console.log(coordsUrl);
+	// let weatherData;
+	// try {
+	// 	weatherData = await fetch(coordsUrl);
+	// 	console.log(weatherData);
+	// } catch (err) {
+	// 	console.log(err);
+	// }
 
-	// renderWeatherInfo(sample);
+	renderWeatherInfo(sample);
 };
 
 const renderWeatherInfo = (data) => {
+	const location = document.getElementById('location');
 	const tempValue = document.getElementById('temp-value');
-	tempValue.textContent = `${data.main.temp}&degK`;
+	const skyMood = document.getElementById('sky-mood');
+
+	location.innerHTML = `${data.name}, ${data.sys.country}`;
+	tempValue.innerHTML = `${data.main.temp}&degK`;
+	skyMood.innerHTML = `${data.weather[0].main}`;
 }
 
 const errorFunc = (error) => {
