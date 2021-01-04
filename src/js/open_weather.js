@@ -31,10 +31,12 @@ const renderWeatherInfo = (data) => {
 	const location = document.getElementById('location');
 	const tempValue = document.getElementById('temp-value');
 	const skyMood = document.getElementById('sky-mood');
+	const skyIcon = document.getElementById('sky-icon');
 
 	location.innerHTML = `${data.name}, ${data.sys.country}`;
 	tempValue.innerHTML = `${Math.round(data.main.temp)}&degC`;
 	skyMood.innerHTML = `${data.weather[0].main}`;
+	skyIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
 };
 
 const errorFunc = (error) => {
@@ -58,6 +60,7 @@ export const searchedLocation = async e => {
 	const apiUrl = createApiUrl(locationArray, apiKey);
 	// const weatherInfo = await fetchWeatherData(apiUrl);
 	renderWeatherInfo(sample2);
+	scroll(0, 0);
 };
 
 const changeUnit = () => {
