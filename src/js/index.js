@@ -1,3 +1,7 @@
-import { getCurrentLocationWeather } from './open_weather';
+import { getCurrentLocationAndWeather, searchedLocation } from './open_weather';
 
-getCurrentLocationWeather();
+getCurrentLocationAndWeather();
+
+const weatherForm = document.getElementById('weather-form');
+
+weatherForm.addEventListener('submit', searchedLocation);

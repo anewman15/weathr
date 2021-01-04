@@ -26,16 +26,31 @@ const renderWeatherInfo = (data) => {
 	location.innerHTML = `${data.name}, ${data.sys.country}`;
 	tempValue.innerHTML = `${data.main.temp}&degK`;
 	skyMood.innerHTML = `${data.weather[0].main}`;
-}
+};
 
 const errorFunc = (error) => {
 	console.log(error);
 };
 
-export const getCurrentLocationWeather = () => {
+export const getCurrentLocationAndWeather = () => {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(displayCurrentLocationWeather, errorFunc);
 	}
+};
+
+export const searchedLocation = (e) => {
+	e.preventDefault();
+	const locationSearched = document.getElementById('locationSearched').value;
+	
+	console.log(locationSearched);
+	const weatherForm = document.getElementById('weather-form');
+	weatherForm.reset();
+
+};
+
+export const displaySearchedLocationWeather = () => {
+	searchedLocation();
+
 };
 
 
