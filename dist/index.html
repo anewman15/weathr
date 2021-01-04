@@ -9,26 +9,34 @@
 </head>
 <body>
   <div class="container-fluid">
-    <h2 class="my-4 font-weight-bold text-center text-secondary">Find Out the Current Weather Anywhere</h2>
-    <section class="w-75 mx-auto">
-      <form action="">
-        <div class="form-group row">
-          <div class="col-md-11">
-            <input type="search" class="form-control" id="inputSearch" placeholder="Enter a city name">
-          </div>
-          <div class="col-md-1">
-            <button type="submit" class="btn btn-success">Search</button>
+    <section class="w-75 mx-auto my-5 bg-light">
+      <h3 class="my-2 py-3 font-weight-bold text-center text-success">Weather in <span id="location">Comilla, Bangladesh</span></h3>
+      <div>
+        <div class="mx-auto my-2 text-center">
+          <p id="temp-value" class="display-1 font-weight-bold">26&degC</p>
+          <p id="sky-mood" class="">Cloudy</p>
+        </div>
+        <div class="text-center">
+          <img id="sky-img" src="../src/images/app-screenshot.png" class="img-fluid" alt="sky-mood">
+        </div>
+      </div>
+      <button type="submit" class="mx-3 my-3 btn btn-warning btn-sm font-weight-bold">Change Unit: C / F</button>
+    </section>
+
+    <section class="mx-auto">
+      <h2 class="my-5 font-weight-bold text-center text-secondary">Find out the current weather anywhere</h2>
+      <form action="" class="w-50 mx-auto">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-11">
+              <input type="search" class="form-control" id="inputSearch" placeholder="Enter a city name and the country">
+            </div>
+            <div class="col-md-1">
+              <button type="submit" class="btn btn-success">Search</button>
+            </div>
           </div>
         </div>
       </form>
-    </section>
-
-    <section class="w-75 mx-auto my-5 bg-light">
-      <h3 class="my-2 py-3 font-weight-bold text-center text-success">Weather in Comilla, Bangladesh</h3>
-      <div class="mx-auto my-2 d-flex justify-content-center align-items-center">
-        <p class="mx-5 my-3 font-weight-bold">26 &degC</p>
-        <button type="submit" class="mx-2 my-3 btn btn-warning font-weight-bold">Change Unit: C / F</button>
-      </div>
     </section>
 
   </div>
