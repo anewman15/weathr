@@ -1,22 +1,30 @@
+const apiKey = '65dc2a1f074cfaa1facbb96a66e9e88b';
 const displayCurrentLocationWeather = async position => {
 	const coordinates = await position.coords;
 	console.log(coordinates);
 	const { latitude } = coordinates;
 	const { longitude } = coordinates;
-	const apiKey = '65dc2a1f074cfaa1facbb96a66e9e88b';
 
 	// const coordsUrl = `api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 	// console.log(coordsUrl);
-	// let weatherData;
-	// try {
-	// 	weatherData = await fetch(coordsUrl);
-	// 	console.log(weatherData);
-	// } catch (err) {
-	// 	console.log(err);
-	// }
 
 	renderWeatherInfo(sample);
 };
+
+const createApiUrl = (searchedLocationArray, apiKey) => {
+	const url = `api.openweathermap.org/data/2.5/weather?q=${searchedLocationArray[0]},${searchedLocationArray[1]}&appid=${apiKey}`;
+	console.log(url);
+	return url;
+};
+
+const fetchWeatherData = async url => {
+	try {
+		const weatherData = await fetch(url);
+		console.log(weatherData);
+	} catch (err) {
+		console.log(err);
+	}
+}
 
 const renderWeatherInfo = (data) => {
 	const location = document.getElementById('location');
@@ -41,11 +49,11 @@ export const getCurrentLocationAndWeather = () => {
 export const searchedLocation = (e) => {
 	e.preventDefault();
 	const locationSearched = document.getElementById('locationSearched').value;
-	
-	console.log(locationSearched);
+	const locationArray = locationSearched.split(', ');
+	console.log(locationArray);
 	const weatherForm = document.getElementById('weather-form');
 	weatherForm.reset();
-
+	createApiUrl(locationArray, apiKey);
 };
 
 export const displaySearchedLocationWeather = () => {
