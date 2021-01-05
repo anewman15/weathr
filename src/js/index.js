@@ -3,7 +3,6 @@ import { getCurrentLocationAndWeather, displaySearchedLocationWeather, showChang
 getCurrentLocationAndWeather();
 
 const weatherForm = document.getElementById('weather-form');
-
 weatherForm.addEventListener('submit', displaySearchedLocationWeather);
 
 const btnChangeUnit = document.getElementById('btn-change-unit');
