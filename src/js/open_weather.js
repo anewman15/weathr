@@ -17,6 +17,36 @@ const renderWeatherInfo = (data) => {
 	skyIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
 };
 
+const renderNotFoundError = () => {
+	const errorSection = document.getElementById('error-section');
+	errorSection.innerHTML = `
+		<div class="alert alert-danger" role="alert">
+			City not found. Please see Tips below.
+		</div>`;
+	setTimeout(() => {
+		errorSection.innerHTML = '';
+	}, 10000);
+};
+
+const displayError = (err) => {
+	const errorSection = document.getElementById('error-section');
+	errorSection.innerHTML = `
+		<div class="alert alert-danger" role="alert">
+			${err}
+		</div>`;
+	setTimeout(() => {
+		errorSection.innerHTML = '';
+	}, 10000);
+};
+
+const renderData = (data) => {
+	if (data.weather) {
+		renderWeatherInfo(data);
+	} else if (data.cod === '404') {
+		renderNotFoundError();
+	}
+};
+
 const displayCurrentLocationWeather = async position => {
 	const coordinates = await position.coords;
 	const { latitude } = coordinates;
@@ -27,14 +57,15 @@ const displayCurrentLocationWeather = async position => {
 	try {
 		const response = await fetch(coordsUrl);
 		const data = await response.json();
-		renderWeatherInfo(data);
-	} catch (err) {
-		console.log(err);
+		renderData(data);
+	} catch (error) {
+		displayError(error);
 	}
 };
 
 const errorFunc = (error) => {
 	console.log(error);
+	displayError(error);
 };
 
 export const getCurrentLocationAndWeather = () => {
@@ -63,10 +94,10 @@ export const displaySearchedLocationWeather = async e => {
 
 		const response = await fetch(apiUrl);
 		const data = await response.json();
-		renderWeatherInfo(data);
+		renderData(data);
 		scroll(0, 0);
-	} catch (e) {
-		console.log(e);
+	} catch (error) {
+		displayError(error);
 	}
 };
 

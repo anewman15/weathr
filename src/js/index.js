@@ -1,6 +1,6 @@
 import { getCurrentLocationAndWeather, displaySearchedLocationWeather, showChangedUnit } from './open_weather';
 
-getCurrentLocationAndWeather();
+window.addEventListener('load', getCurrentLocationAndWeather);
 
 const weatherForm = document.getElementById('weather-form');
 weatherForm.addEventListener('submit', displaySearchedLocationWeather);
