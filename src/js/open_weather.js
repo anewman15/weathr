@@ -32,7 +32,7 @@ const displayError = (err) => {
 	const errorSection = document.getElementById('error-section');
 	errorSection.innerHTML = `
 		<div class="alert alert-danger" role="alert">
-			${err}
+			${err.message}. Please refresh page.
 		</div>`;
 	setTimeout(() => {
 		errorSection.innerHTML = '';
@@ -64,7 +64,6 @@ const displayCurrentLocationWeather = async position => {
 };
 
 const errorFunc = (error) => {
-	console.log(error);
 	displayError(error);
 };
 
