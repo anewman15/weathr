@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	entry: './src/js/index.js',
+	entry: ['babel-polyfill', './src/js/index.js'],
 	output: {
 		filename: 'main.js',
 		path: path.resolve(__dirname, 'dist'),
@@ -34,6 +34,7 @@ module.exports = {
 						plugins: ['@babel/plugin-proposal-private-methods',
 							'@babel/plugin-proposal-object-rest-spread',
 							'@babel/plugin-proposal-class-properties',
+
 						],
 					},
 				},

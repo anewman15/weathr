@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anewman15/to-dos-app.git"
+    "url": "git+https://github.com/anewman15/weathr.git"
   },
   "keywords": [
     "JavaScript",
@@ -31,6 +31,9 @@
     "@babel/preset-env": "^7.12.10",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.0.16",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
     "css-loader": "^5.0.1",
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
