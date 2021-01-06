@@ -78,7 +78,7 @@ const locationArray = (locationString) => {
 		const array = locationString.split(', ');
 		return array;
 	}
-	throw new Error(`Invalid locattion. You searched for "${locationString}". Please refresh page, see the tips and enter a valid location`);
+	throw new Error(`Invalid locattion. You searched for "${locationString}". See the tips and enter a valid location`);
 };
 
 export const displaySearchedLocationWeather = async e => {

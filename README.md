@@ -17,8 +17,9 @@ It is necessary to follow the guidelines in the "Tips" section. Otherwise, you'l
 2. Navigate to the project directory
 3. Run `npm install`
 4. Then run `npm run start`
-5. Open `http://localhost:8080/dist/index.html` in your browser and navigate around the site.
-6. Create Projects and Todos, edit them and delete them
+5. Open `http://localhost:8080/dist/index.html` in your browser and navigate around the site
+6. Search for the weather in a location of your interest and it will be displayed
+7. Follow the tips section for efficient search
 
 
 ## Author
