@@ -8,6 +8,57 @@
   <title>Weathr</title>
 </head>
 <body>
+  <div class="container-fluid">
+    <section class="w-75 mx-auto bg-light">
+      <h3 class="my-2 py-2 font-weight-bold text-center text-success">Weather in <span id="location"></span></h3>
+      <div class="text-center">
+        <button id="btn-change-unit" type="submit" class="btn btn-warning btn-sm font-weight-bold">Change Unit: C / F</button>
+      </div>
+      <div class="p-3 d-flex justify-content-around align-content-center">
+        <div class="text-center align-self-center">
+          <p id="temp-value" class="display-1 font-weight-bold"></p>
+        </div>
+        <div class="text-center">
+          <img id="sky-icon" src="" class="img-fluid" alt="sky-mood">
+          <p id="sky-mood" class="display-5 font-weight-bold"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto">
+      <h2 class="my-5 font-weight-bold text-center text-secondary">Find out the current weather anywhere</h2>
+      <div id="error-section" class="w-50 text-center mx-auto">
+
+      </div>
+      <form id="weather-form" action="" class="w-50 mx-auto">
+        <div class="form-group">
+          <div class="d-flex justify-content-center">
+            <div class="input-group">
+              <input type="search" class="form-control" id="locationSearched" placeholder="City Name, CountryCode - i.e. New York City, US">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-success">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="mark w-50 my-3 py-2 mx-auto">
+        <h5 class="h6 text-center font-weight-bold">Tips:</h5>
+        <ul class="small">
+          <li class="">
+            To make it more precise put the titlelized form of city's name and 2-letter country code (ISO3166) separated by a comma and a space.
+            You will get all proper cities in chosen country.
+          </li>
+          <li class="">The order is important - the first
+            is city name then comma and space, and then country. Example - London, GB or New York, US.
+          </li>
+          <li class="">If entered location returns no data, use alternate names of the city.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
